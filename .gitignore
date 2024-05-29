@@ -1,0 +1,17 @@
+# Ignore Visual Studio temporary files and directories
+.vs/
+*.vscode
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Ignore build directories and files
+bin/
+obj/
+
+# Ignore other temporary files
+*.log
+*.tmp
+*.temp
+*.pid

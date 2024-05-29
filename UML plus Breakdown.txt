@@ -1,0 +1,190 @@
+UML:
++-------------------+
+|     Student       |
++-------------------+
+| - id: int         |
+| - name: string    |
+| - email: string   |
+| - dateOfBirth: string |
+| - address: string |
+| - phoneNumber: string |
+| - enrolledCourses: vector<int> |
++-------------------+
+| + Student(id: int, name: string, email: string, dateOfBirth: string, address: string, phoneNumber: string) |
+| + getId(): int    |
+| + getName(): string |
+| + getEmail(): string |
+| + getDateOfBirth(): string |
+| + getAddress(): string |
+| + getPhoneNumber(): string |
+| + getEnrolledCourses(): vector<int> |
+| + setName(name: string): void |
+| + setEmail(email: string): void |
+| + setDateOfBirth(dateOfBirth: string): void |
+| + setAddress(address: string): void |
+| + setPhoneNumber(phoneNumber: string): void |
+| + enrollInCourse(courseId: int): void |
++-------------------+
+
++-------------------+
+|      Course       |
++-------------------+
+| - id: int         |
+| - credits: int    |
+| - name: string    |
+| - instructor: string |
++-------------------+
+| + Course(id: int, credits: int, name: string, instructor: string) |
+| + getId(): int    |
+| + getCredits(): int |
+| + getName(): string |
+| + getInstructor(): string |
+| + setName(name: string): void |
+| + setInstructor(instructor: string): void |
++-------------------+
+
++-----------------------+
+|  ManagementSystem     |
++-----------------------+
+| - students: vector<Student> |
+| - courses: vector<Course> |
++-----------------------+
+| + addStudent(student: Student): void |
+| + updateStudent(id: int, updatedStudent: Student): void |
+| + deleteStudent(id: int): void |
+| + getStudent(id: int): Student* |
+| + addCourse(course: Course): void |
+| + updateCourse(id: int, updatedCourse: Course): void |
+| + deleteCourse(id: int): void |
+| + getCourse(id: int): Course* |
+| + listAllStudents(): void |
+| + listAllCourses(): void |
++-----------------------+
+
+------------------------------------------------------------------------------------------------------
+Breakdown:
+Student Management System Classes Breakdown
+
+Student Class:
+
+Variables:
+- id (int): Unique identifier for the student.
+- name (std::string): Full name of the student.
+- email (std::string): Email address of the student.
+- dateOfBirth (std::string): Date of birth of the student in YYYY-MM-DD format.
+- address (std::string): Home address of the student.
+- phoneNumber (std::string): Contact phone number of the student.
+- enrolledCourses (std::vector<int>): List of course IDs the student is enrolled in.
+
+Functions:
+- Student(int id, const std::string& name, const std::string& email, const std::string& dateOfBirth, const std::string& address, const std::string& phoneNumber)
+  - Purpose: Constructor to initialize a student with all necessary details.
+  - Outcome: Creates a new `Student` object with specified details.
+- int getId() const
+  - Purpose: Retrieve the student's unique ID.
+  - Outcome: Returns the student's ID.
+- std::string getName() const
+  - Purpose: Retrieve the student's name.
+  - Outcome: Returns the student's name.
+- std::string getEmail() const
+  - Purpose: Retrieve the student's email.
+  - Outcome: Returns the student's email.
+- std::string getDateOfBirth() const
+  - Purpose: Retrieve the student's date of birth.
+  - Outcome: Returns the student's date of birth.
+- std::string getAddress() const
+  - Purpose: Retrieve the student's address.
+  - Outcome: Returns the student's address.
+- std::string getPhoneNumber() const
+  - Purpose: Retrieve the student's phone number.
+  - Outcome: Returns the student's phone number.
+- std::vector<int> getEnrolledCourses() const
+  - Purpose: Retrieve the list of course IDs the student is enrolled in.
+  - Outcome: Returns a vector of enrolled course IDs.
+- void setName(const std::string& name)
+  - Purpose: Set a new name for the student.
+  - Outcome: Updates the student's name.
+- void setEmail(const std::string& email)
+  - Purpose: Set a new email for the student.
+  - Outcome: Updates the student's email.
+- void setDateOfBirth(const std::string& dateOfBirth)
+  - Purpose: Set a new date of birth for the student.
+  - Outcome: Updates the student's date of birth.
+- void setAddress(const std::string& address)
+  - Purpose: Set a new address for the student.
+  - Outcome: Updates the student's address.
+- void setPhoneNumber(const std::string& phoneNumber)
+  - Purpose: Set a new phone number for the student.
+  - Outcome: Updates the student's phone number.
+- void enrollInCourse(int courseId)
+  - Purpose: Enroll the student in a new course.
+  - Outcome: Adds the course ID to the student's list of enrolled courses.
+
+Course Class:
+
+Variables:
+- id (int): Unique identifier for the course.
+- credits (int): Number of credits the course is worth.
+- name (std::string): Name of the course.
+- instructor (std::string): Name of the course instructor.
+
+Functions:
+- Course(int id, int credits, const std::string& name, const std::string& instructor)
+  - Purpose: Constructor to initialize a course with all necessary details.
+  - Outcome: Creates a new `Course` object with specified details.
+- int getId() const
+  - Purpose: Retrieve the course's unique ID.
+  - Outcome: Returns the course's ID.
+- int getCredits() const
+  - Purpose: Retrieve the number of credits the course is worth.
+  - Outcome: Returns the course's credits.
+- std::string getName() const
+  - Purpose: Retrieve the course's name.
+  - Outcome: Returns the course's name.
+- std::string getInstructor() const
+  - Purpose: Retrieve the course instructor's name.
+  - Outcome: Returns the instructor's name.
+- void setName(const std::string& name)
+  - Purpose: Set a new name for the course.
+  - Outcome: Updates the course's name.
+- void setInstructor(const std::string& instructor)
+  - Purpose: Set a new instructor for the course.
+  - Outcome: Updates the course's instructor.
+
+ManagementSystem Class:
+
+Variables:
+- students (std::vector<Student>): List of all students in the system.
+- courses (std::vector<Course>): List of all courses in the system.
+
+Functions:
+- void addStudent(const Student& student)
+  - Purpose: Add a new student to the system.
+  - Outcome: Appends the student to the `students` vector.
+- void updateStudent(int id, const Student& updatedStudent)
+  - Purpose: Update details of an existing student.
+  - Outcome: Modifies the details of the student with the specified ID.
+- void deleteStudent(int id)
+  - Purpose: Remove a student from the system.
+  - Outcome: Erases the student with the specified ID from the `students` vector.
+- Student* getStudent(int id)
+  - Purpose: Retrieve a student by their ID.
+  - Outcome: Returns a pointer to the student with the specified ID.
+- void addCourse(const Course& course)
+  - Purpose: Add a new course to the system.
+  - Outcome: Appends the course to the `courses` vector.
+- void updateCourse(int id, const Course& updatedCourse)
+  - Purpose: Update details of an existing course.
+  - Outcome: Modifies the details of the course with the specified ID.
+- void deleteCourse(int id)
+  - Purpose: Remove a course from the system.
+  - Outcome: Erases the course with the specified ID from the `courses` vector.
+- Course* getCourse(int id)
+  - Purpose: Retrieve a course by its ID.
+  - Outcome: Returns a pointer to the course with the specified ID.
+- void listAllStudents() const
+  - Purpose: List all students in the system.
+  - Outcome: Prints the details of all students.
+- void listAllCourses() const
+  - Purpose: List all courses in the system.
+  - Outcome: Prints the details of all courses.
