@@ -98,6 +98,11 @@ void ManagementSystem::listAllStudents() const
 	{
 		std::cout << "Name: " << student.getName() << endl;
 		std::cout << "ID: " << student.getId() << std::endl;
+		std::cout << "Email: " << student.getEmail() << std::endl;
+		std::cout << "Date of Birth: " << student.getDateOfBirth() << std::endl;
+		std::cout << "Address: " << student.getAddress() << std::endl;
+		std::cout << "Phone Number: " << student.getPhoneNumber() << std::endl;
+		cout << endl;
 	}
 	cout << endl;
 }
@@ -110,6 +115,9 @@ void ManagementSystem::listAllCourses() const
 	{
 		std::cout << "Name: " << course.getName() << endl;
 		std::cout << "ID: " << course.getId() << std::endl;
+		std::cout << "Credits: " << course.getCredits() << std::endl;
+		std::cout << "Instructor: " << course.getInstructor() << std::endl;
+		cout << endl;
 	}
 	cout << endl;
 }

@@ -13,7 +13,7 @@ private:
 	std::string dateOfBirth;
 	std::string address;
 	std::string phoneNumber;
-	std::vector<int> enrolledCourses;
+	std::vector<int> enrolledCourses; // maek sure to implement this soon
 
 public:
 	Student(int id, const std::string& name, const std::string& email, const std::string dateOfBirth,
