@@ -4,13 +4,46 @@
 /*
 Notes:
 	5-28-24 - Create a function to create student from user input &
-	          make sure that there is a validation check
+	          make sure that there is a validation check 1/2 
 	5-28-24 - Create default constructor
 	5-28-24 - Potentitally include the big three
 
 
 
 */
+
+Student createStudentFromInput()
+{
+	// variables to create student
+	int id;
+	std::string name, email, dateOfBirth, address, phoneNumber;
+
+	// prompt user
+	cout << "ID: ";
+	cin >> id;
+	cin.ignore();
+
+	cout << "Name: ";
+	getline(cin, name);
+
+	cout << "Email: ";
+	getline(cin, email);
+
+	cout << "Date Of Birth: ";
+	getline(cin, dateOfBirth);
+
+	cout << "Address: ";
+	getline(cin, address);
+
+	cout << "Phone Number: ";
+	getline(cin, phoneNumber);
+
+	// pass variables holding user input into new student object
+	Student newStudent(id, name, email, dateOfBirth, address, phoneNumber);
+
+	return newStudent;
+}
+
 int main()
 {
 	// create a management system obj
@@ -39,8 +72,51 @@ int main()
 
 	
 	// below for testing only & creating a student from use input
-
+	/*
+		- Create prompt menu and options for user, based of Mangement System
 	
+	*/
+	// create prompt func for user
+	int numStudents;
+	std::cout << "Welcome" << std::endl;
+	std::cout << "Please enter number of students to be created: ";
+	std::cin >> numStudents;
+
+	for (int i = 0; i < numStudents; i++)
+	{
+		Student newStudent = createStudentFromInput();
+
+		std::cout << "Student created successfully!" << std::endl;
+
+		int choice;
+		std::cout << "Add student to list?(1 yes/ 2 no): ";
+		std::cin >> choice;
+		if (choice == 1)
+		{
+			std::cout << "Student added to list successfully!" << std::endl;
+				system.addStudent(newStudent);
+		}
+		else if (choice != 1)
+		{
+			std::cout << "Student not added!" << std::endl;
+		}
+		
+
+		std::cout << "Would you like to see the list?(1 yes/ 2no): ";
+		std::cin >> choice;
+		if (choice == 1)
+		{
+			system.listAllStudents();
+		}
+		else if (choice != 1)
+		{
+			std::cout << "GoodBye" << endl;
+		}
+
+
+
+	}
+
 
 
 
